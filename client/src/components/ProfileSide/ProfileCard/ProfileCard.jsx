@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import coverpic from "/run/media/ij-singh/My Data/WEB DEVELOPMENT/Full Stack Projects/tangerine-app/client/src/img/cover.jpg";
+import coverpic from "../../../img/cover.jpg";
 import profilepic from "../../../img/profileImg.jpg";
 const ProfileCard = () => {
     return (

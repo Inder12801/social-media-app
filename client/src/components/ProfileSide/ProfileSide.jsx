@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import LogoSearch from "./LogoSearch/LogoSearch";
 import ProfileCard from "./ProfileCard/ProfileCard";
-import FollowersCard from "../FollowersCard/FollowersCard";
+import FollowersCard from "./FollowersCard/FollowersCard";
 
 const ProfileSide = () => {
   return (

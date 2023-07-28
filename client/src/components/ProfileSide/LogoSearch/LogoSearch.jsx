@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Input, OutlinedInput, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import logo from "/run/media/ij-singh/My Data/WEB DEVELOPMENT/Full Stack Projects/tangerine-app/client/src/img/logo.png";
+import logo from "../../../img/logo.png";
 
 const LogoSearch = () => {
   return (

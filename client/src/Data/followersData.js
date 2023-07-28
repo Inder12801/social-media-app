@@ -7,6 +7,5 @@ export const followers = [
     { name: "Andrew Hudson", username: "andewT", img: img1 },
     { name: "Andrew Hudson", username: "andewT", img: img1 },
     { name: "Andrew Hudson", username: "andewT", img: img1 },
-    { name: "Andrew Hudson", username: "andewT", img: img1 },
 
 ]

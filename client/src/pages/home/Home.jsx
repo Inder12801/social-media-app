@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Stack } from "@mui/material";
 import React from "react";
 import ProfileSide from "../../components/ProfileSide/ProfileSide";
+import PostSide from "../../components/PostSide/PostSide";
 
 const Home = () => {
   return (
@@ -14,7 +15,8 @@ const Home = () => {
       padding={"1rem"}
     >
       <ProfileSide />
-      <Box width={"42%"}>Profile</Box>
+      <PostSide />
+
       <Box width={"20%"}>Profile</Box>
     </Stack>
   );
