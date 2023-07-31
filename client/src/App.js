@@ -3,6 +3,9 @@ import "./App.css";
 import theme from "./theme";
 import { Box, Button, ThemeProvider } from "@mui/material";
 import Home from "./pages/home/Home";
+import Profile from "./pages/Profile/Profile";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -21,7 +24,10 @@ function App() {
             left: "-15%",
           }}
         ></div>
-        <Home />
+        {/* <Home /> */}
+        {/* <Profile /> */}
+        <Signup />
+        {/* <Login /> */}
       </div>
     </ThemeProvider>
   );

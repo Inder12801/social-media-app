@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -12,15 +12,27 @@ import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import Box from '@mui/material/Box';
-import { green } from '@mui/material/colors';
-import { Input } from '@mui/material';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
 
 import profilePic from "../../../img/postpic1.jpg"
 
 const PostShare = () => {
+    const imageRef = useRef();
+    const [image, setImage] = useState(null);
+    const handlePhotoClick = (e) => {
+        imageRef.current.click();
+
+    }
+    const onImageClick = (event) => {
+        const selectedImage = event.target.files[0];
+        setImage({ image: URL.createObjectURL(selectedImage) })
+        console.log(selectedImage);
+    };
     return (
-        <Box className="post-share" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: "center" }} width={'100%'}
-            bgcolor={'#ffffffa3'}
+        <Box className="post-share" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: "center", position: "relative" }} width={'100%'}
+            bgcolor={'#ffffffa1'}
+            // bgcolor={'#ff5656'}
             borderRadius={'30px'}
         >
             <Box sx={{ display: 'flex', alignItems: 'center', padding: "20px 20px", gap: "20px" }}>
@@ -51,8 +63,11 @@ const PostShare = () => {
                 />
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 2 }}>
-                <Button startIcon={<CameraEnhanceRoundedIcon style={{ color: "green", fontSize: '25px' }} />}
+                <Button startIcon={<CameraEnhanceRoundedIcon style={{ color: "green", fontSize: '25px' }}
+
+                />}
                     color="success"
+                    onClick={handlePhotoClick}
                 >
                     Photo
                 </Button>
@@ -92,12 +107,45 @@ const PostShare = () => {
                             border: "2px solid #fca61f"
                         }
                     }}
-
-
-
                 >
                     share
                 </Button></Box>
+
+            </Box>
+            <Box sx={{
+                width: "100%",
+                height: "200%",
+                position: "absolute",
+                top: "100%",
+                borderRadius: "30px"
+            }}>
+                <input style={{ display: "none" }} ref={imageRef} type='file' onChange={onImageClick}
+                />
+
+
+                {
+                    image && <><img src={image.image} alt="" style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "30px",
+                        objectFit: "cover"
+
+                    }} />
+                        <CloseRoundedIcon sx={{
+                            position: "absolute",
+                            right: "10px",
+                            top: "10px",
+                            cursor: "pointer"
+
+                        }}
+                            onClick={() => {
+                                setImage(null);
+                            }}
+                        />
+                    </>
+                }
+
+
             </Box>
 
         </Box >

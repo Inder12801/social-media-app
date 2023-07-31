@@ -10,7 +10,7 @@ const FollowerCard = ({ follower }) => {
     const { name, username, img } = follower;
 
     return (
-        <Card sx={{ display: 'flex', alignItems: 'center', padding: '10px', backgroundColor: "transparent", overflow: "auto" }}>
+        <Card sx={{ display: 'flex', alignItems: 'center', padding: '10px', backgroundColor: "transparent", overflow: "auto", boxShadow: "none" }}>
             <Avatar src={img} alt={`${username}'s Profile`} sx={{ width: 60, height: 60, marginRight: '10px' }} />
             <CardContent sx={{ flex: '1 0 auto' }}>
                 <Typography component="h2" variant="h5" fontSize={'1.0rem'}>

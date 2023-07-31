@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Input, OutlinedInput, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import logo from "../../../img/logo.png";
+import tangerineLogo from '../../../img/tangerine_logo.png'
+
 
 const LogoSearch = () => {
   return (
@@ -12,7 +13,8 @@ const LogoSearch = () => {
       }}
       alignItems={"center"}
     >
-      <img src={logo} alt="logo" style={{
+      <img src={tangerineLogo} alt="logo" style={{
+        width: "3.2rem"
       }} />
       <Box
         width={"100%"}

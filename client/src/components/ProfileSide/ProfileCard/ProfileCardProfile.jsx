@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import coverpic from "../../../img/cover.jpg";
 import profilepic from "../../../img/profileImg.jpg";
-const ProfileCard = () => {
+const ProfileCardProfile = () => {
     return (
         <Box width={"100%"} bgcolor={"#ffffffa3"} borderRadius={"20px"}
             display={"flex"}
@@ -27,11 +27,10 @@ const ProfileCard = () => {
                 <img
                     src={profilepic}
                     style={{
-                        width: "7rem",
+                        width: "10rem",
                         borderRadius: "50%",
                         position: "absolute",
-                        margin: "auto",
-                        top: "5rem",
+                        bottom: "-5rem",
                         boxShadow: "0px 4px 17px 2px rgba(0, 0, 0, 0.25)",
                         alignSelf: "center"
                     }}
@@ -41,11 +40,11 @@ const ProfileCard = () => {
                 fullWidth
                 textAlign={"center"}
                 position={'relative'}
-                marginTop={'3.5rem'}
+                marginTop={'5.5rem'}
             >
 
-                <Typography fontWeight={"400"} fontSize={"1.2em"}>Sohan Kumar</Typography>
-                <Typography fontWeight={"400"} fontSize={"1em"}>Senio UI/UX Developer</Typography>
+                <Typography fontWeight={"600"} fontSize={"1.6em"}>Sohan Kumar</Typography>
+                <Typography fontWeight={"400"} fontSize={"1.2em"}>Senio UI/UX Developer</Typography>
             </Box>
 
             <Box display={"flex"}
@@ -54,7 +53,8 @@ const ProfileCard = () => {
                 borderTop={"1px double #afacac"}
                 borderBottom={"1px double #afacac"}
                 padding={"10px 0px"}
-                margin={"auto"}
+                margin={"2rem auto"}
+                marginBottom={"6vh"}
 
             >
                 <Box
@@ -64,7 +64,18 @@ const ProfileCard = () => {
                     borderRight={'1px double #afacac'}
                 >
                     <Typography fontWeight={'600'}>4000</Typography>
-                    <Typography>Followers</Typography>
+                    <Typography fontWeight={"600"} fontSize={"1.2em"}>Followers</Typography>
+                </Box>
+                <Box
+                    width={"50%"}
+                    fullWidth
+                    margin={'auto'}
+                    textAlign={'center'}
+                    borderRight={'1px double #afacac'}
+                >
+                    <Typography fontWeight={'600'}>400</Typography>
+
+                    <Typography ontWeight={"600"} fontSize={"1.2em"}>Following</Typography>
                 </Box>
                 <Box
                     width={"50%"}
@@ -74,24 +85,12 @@ const ProfileCard = () => {
                 >
                     <Typography fontWeight={'600'}>400</Typography>
 
-                    <Typography>Following</Typography>
+                    <Typography ontWeight={"600"} fontSize={"1.2em"}>Posts</Typography>
                 </Box>
 
-            </Box>
-            <Box width={'100%'} textAlign={'center'} position={'relative'} top={'0rem'}
-                margin={"10px 0"}
-            >
-                <Typography
-                    fontSize={'1.3rem'}
-                    fontWeight={'700'}
-                    color={"primary.main"}
-                    style={{
-                        cursor: "pointer"
-                    }}
-                >My Profile</Typography>
             </Box>
         </Box >
     );
 };
 
-export default ProfileCard;
+export default ProfileCardProfile;

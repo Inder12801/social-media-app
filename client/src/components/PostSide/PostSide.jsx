@@ -1,22 +1,23 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import { Box, Button } from '@mui/material'
+import React, { useState } from 'react'
 import PostShare from './PostShare/PostShare'
+import Posts from './Posts/Posts'
 
 const PostSide = () => {
     return (
-        <Box width={"42%"}
+        <Box width={"48%"}
             display={"flex"}
             flexDirection={"column"}
             // bgcolor={"lightgreen"}
             height={"100vh"}
             overflow={"auto"}
+            gap={3}
         >
-            <Box>
-                <PostShare />
-            </Box>
-            <Box>
-                Posts
-            </Box>
+
+            <PostShare />
+            <Posts />
+
+
         </Box>
     )
 }
