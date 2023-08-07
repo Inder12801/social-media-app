@@ -7,7 +7,7 @@ import FollowersCard from "./FollowersCard/FollowersCard";
 const ProfileSide = () => {
   return (
     <Box
-      width={"20%"}
+      width={"100%"}
       display={"flex"}
       flexDirection={"column"}
       alignContent={"center"}
