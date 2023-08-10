@@ -3,9 +3,11 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Link, Stack } from "@mui/material";
+import { Alert, Link, Snackbar, Stack } from "@mui/material";
 import logo from "../../img/logo.png";
 import tangerineLogo from "../../img/tangerine_logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { signupSuccess } from "../../store/slices/authSlice";
 
 const textFieldStyle = {
   bgcolor: " #ebba771a",
@@ -27,7 +29,10 @@ export const signupBtnStyle = {
   },
 };
 
-const Signup = () => {
+const Signup = ({ setIsSignUp }) => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
+
   const [signupFormData, setSignupFormData] = useState({
     firstname: "",
     lastname: "",
@@ -37,6 +42,20 @@ const Signup = () => {
     confirmPassword: "",
   });
   const [samePass, setSamePass] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  console.log("Loading is : ", loading);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   // Handle change
   const handleChange = (e) => {
@@ -45,13 +64,8 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // Handle Submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(signupFormData);
-
-    // Clear the form
+  // Reset Form
+  const resetForm = () => {
     setSignupFormData({
       firstname: "",
       lastname: "",
@@ -60,6 +74,27 @@ const Signup = () => {
       password: "",
       confirmPassword: "",
     });
+  };
+
+  // Handle Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(signupFormData);
+    // Check if passwords match
+    if (signupFormData.password !== signupFormData.confirmPassword) {
+      handleOpen();
+      resetForm();
+      return;
+    }
+    setSamePass(false);
+    // Dispatch signupSuccess
+    dispatch(signupSuccess(signupFormData));
+
+    // Open snackbar
+
+    // Clear the form
+    resetForm();
+    // setIsSignUp(false);
   };
 
   return (
@@ -203,7 +238,11 @@ const Signup = () => {
               onChange={handleChange}
               value={signupFormData.confirmPassword}
             />
-            {/* <Typography>Password does not match</Typography> */}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="error">
+                Password do not match!
+              </Alert>
+            </Snackbar>
           </Stack>
           <Button
             type="submit"
@@ -220,10 +259,7 @@ const Signup = () => {
             textAlign={"center"}
             sx={{ fontSize: "1rem" }}
           >
-            Already have an account?{" "}
-            <Link href="/login" color="primary">
-              Login
-            </Link>
+            Already have an account? Login
           </Typography>
         </form>
       </Grid>

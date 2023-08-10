@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import { Link, Stack } from "@mui/material";
 import tangerineLogo from "../../img/tangerine_logo.png";
 import { signupBtnStyle } from "../Signup/Signup";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../store/slices/authSlice";
 
 const textFieldStyle = {
   bgcolor: " #ebba771a",
@@ -19,8 +21,8 @@ const Login = ({ setIsSignUp }) => {
     username: "",
     password: "",
   });
+  const dispatch = useDispatch();
   const handleChange = (e) => {
-    console.log(e.target.value);
     setLoginFormData({
       ...loginFormData,
       [e.target.name]: e.target.value,
@@ -29,7 +31,7 @@ const Login = ({ setIsSignUp }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(loginFormData);
-
+    dispatch(loginSuccess(loginFormData));
     // Clear the form
     setLoginFormData({
       username: "",
